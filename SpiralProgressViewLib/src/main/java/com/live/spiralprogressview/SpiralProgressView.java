@@ -87,13 +87,13 @@ public class SpiralProgressView extends View {
 
         if(mAttrs.haveAnimation) {
             moveLength = moveLength + mAttrs.animationSpeed;
-            if(moveLength > mAttrs.mDisLine) {
+            if(moveLength > mWidth/2) {
                 moveLength = 0;
             }
         }
 
         // 斜线
-        for (float j = -mBottomWidth + moveLength; j <= mWidth; j += mAttrs.mDisLine + mAttrs.mWLine) {
+        for (float j = -mWidth + moveLength; j <= mWidth; j += mAttrs.mDisLine + mAttrs.mWLine) {
             mTempPath.reset();
             mTempPath.moveTo(j, mHeight);
             mTempPath.lineTo(j + mBottomWidth, 0);
@@ -184,7 +184,7 @@ public class SpiralProgressView extends View {
 
             haveAnimation = false;
             animationTime = 200;
-            animationSpeed = mDisLine / 10;
+            animationSpeed = mDisLine / 5;
         }
 
         public static float dp2px(Context context, float dipValue) {
