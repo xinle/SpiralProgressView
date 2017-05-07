@@ -183,8 +183,8 @@ public class SpiralProgressView extends View {
             mLineColor = Color.parseColor("#D54A2A");
 
             haveAnimation = false;
-            animationTime = 200;
-            animationSpeed = mDisLine / 5;
+            animationTime = 100;
+            animationSpeed = mDisLine / 10;
         }
 
         public static float dp2px(Context context, float dipValue) {

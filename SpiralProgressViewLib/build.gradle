@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'com.novoda.bintray-release'
+
 android {
     compileSdkVersion 24
     buildToolsVersion "25.0.0"
@@ -19,6 +21,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -28,4 +34,13 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+}
+
+publish {
+    userOrg = 'xinle'
+    groupId = 'com.lelive'
+    artifactId = 'SprialProgressView'
+    publishVersion = '1.0'
+    desc = '1.0 实现了进度条控件,用户可以自定义斜线的倾斜度,宽带,斜线之间的宽带等.可以设置斜线是否有动画'
+    website = 'https://github.com/xinle/SpiralProgressView'
 }
