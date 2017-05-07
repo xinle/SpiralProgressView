@@ -25,7 +25,6 @@ public class SpiralProgressView extends View {
     private RectF mContentRect;
     private Path mClipPath;
     private Path mTempPath;
-    private boolean haveAnimation;  // 是否有前进动画
 
     public SpiralProgressView(Context context) {
         super(context);
