@@ -5,7 +5,7 @@
 
 Android 仿IOS ActionSheet UI样式 ,通过纯代码实现 ,不用导入额外的图片 ,可定制化能力强
 
-## Screenshot
+## Screenshot  (实际效果没有这么差,因为图片压缩过的原因有锯齿毛边)
 
 ![](https://github.com/xinle/SpiralProgressView/blob/master/Screenshot/screenshot.gif)
 
