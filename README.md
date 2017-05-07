@@ -7,7 +7,7 @@ Android 仿IOS ActionSheet UI样式 ,通过纯代码实现 ,不用导入额外�
 
 ## Screenshot
 
-![](https://github.com/xinle/SpiralProgressView/blob/master/screenshot/screenshot.gif)
+![](https://github.com/xinle/SpiralProgressView/blob/master/Screenshot/screenshot.gif)
 
 ## 使用
 
