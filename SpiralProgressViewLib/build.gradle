@@ -40,7 +40,8 @@ publish {
     userOrg = 'xinle'
     groupId = 'com.lelive'
     artifactId = 'SpiralProgressView'
-    publishVersion = '1.0'
-    desc = '1.0 实现了进度条控件,用户可以自定义斜线的倾斜度,宽带,斜线之间的宽带等.可以设置斜线是否有动画'
+    publishVersion = '1.1'
+    desc = '1.0 实现了进度条控件,用户可以自定义斜线的倾斜度,宽带,斜线之间的宽带等.可以设置斜线是否有动画 ' +
+            '1.1 添加了二级进度条'
     website = 'https://github.com/xinle/SpiralProgressView'
 }
