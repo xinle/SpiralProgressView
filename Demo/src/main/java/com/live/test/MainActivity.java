@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         SpiralProgressView progressView = (SpiralProgressView) findViewById(R.id.spiral_progress);
         progressView.setProgress(20);
+        progressView.setSecondProgress(60);
         SpiralProgressView.ProgressAttrs attrs = new SpiralProgressView.ProgressAttrs(this);
         attrs.haveAnimation = true;
         progressView.setProgressAttrs(attrs);

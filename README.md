@@ -49,11 +49,13 @@ linearLayout.addView(progressView1);
 |:---------------------------|:--------------------------------------------|:----------|
 | mMax             | 最大值                                      | 100 |
 | mProgress       |  当前进度                         | 0 |
+| mSencondProgress | 第二进度条                       |0|
 | mDisLine         | 斜线的距离                             | 10dp |
 | mWLine  | 斜线的宽度                               | 10dp |
 | mDegrees   |  斜线的角度                              | 45 |
 | mRound |    圆角                              | 5dp |
 | mBackgroudColor   | 背景颜色                      | Color.parseColor("#F86442")|
+| mSecondPressColor   | 第二进度条背景                      | Color.parseColor("#FF7154")|
 | mLineColor          | 斜线的颜色                        |Color.parseColor("#D54A2A")   |
 | haveAnimation       | 是否有动画                      | false    |
 | animationTime   | 动画的时间(作用前提haveAnimation=true)                           | 100      |

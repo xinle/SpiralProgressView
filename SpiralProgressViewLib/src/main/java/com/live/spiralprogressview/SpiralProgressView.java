@@ -19,8 +19,8 @@ public class SpiralProgressView extends View {
     private ProgressAttrs mAttrs;
 
     private int mWidth, mHeight;
-    private float mSection;
-    private Paint mPaint1, mPaint2;
+    private float mSection ,mSecondSection;
+    private Paint mPaint1, mPaint2 ,mPaint3;
     private float mBottomWidth;
     private RectF mContentRect;
     private Path mClipPath;
@@ -46,9 +46,11 @@ public class SpiralProgressView extends View {
 
         mPaint1 = new Paint();
         mPaint2 = new Paint();
+        mPaint3 = new Paint();
 
         mPaint1.setAntiAlias(true);
         mPaint2.setAntiAlias(true);
+        mPaint3.setAntiAlias(true);
 
         mClipPath = new Path();
         mTempPath = new Path();
@@ -65,6 +67,7 @@ public class SpiralProgressView extends View {
     private void attrChange() {
         mPaint1.setColor(mAttrs.mBackgroudColor);
         mPaint2.setColor(mAttrs.mLineColor);
+        mPaint3.setColor(mAttrs.mSecondPressColor);
 
         mBottomWidth = (float) (mHeight / Math.tan(Math.PI * mAttrs.mDegrees / 180));
         mClipPath.addRoundRect(mContentRect, mAttrs.mRound, mAttrs.mRound, CW);
@@ -82,7 +85,7 @@ public class SpiralProgressView extends View {
         canvas.clipPath(mClipPath);
 
         // 背景
-        canvas.drawRoundRect(mContentRect, mAttrs.mRound, mAttrs.mRound, mPaint1);
+        canvas.drawRoundRect(mContentRect, mAttrs.mRound, mAttrs.mRound, Float.compare(mSecondSection , 0) > 0 ? mPaint3 : mPaint1);
 
         if(mAttrs.haveAnimation) {
             moveLength = moveLength + mAttrs.animationSpeed;
@@ -104,6 +107,11 @@ public class SpiralProgressView extends View {
 
         // 进度条
         canvas.drawRect(mWidth * mSection, 0, mWidth, mHeight, mPaint1);
+
+        if(mSecondSection > mSection) {
+            // 第二进度条
+            canvas.drawRect(mWidth * mSection ,0 , mWidth * mSecondSection ,mHeight ,mPaint3);
+        }
 
         canvas.restore();
 
@@ -133,10 +141,11 @@ public class SpiralProgressView extends View {
             mAttrs.mProgress = mAttrs.mMax;
         }
         mSection = mAttrs.mProgress * 1.0f / mAttrs.mMax;
+        mSecondSection = mAttrs.mSecondPress * 1.0f / mAttrs.mMax;
         postInvalidate();
     }
 
-    /***
+    /**
      * 设置当前的进度值
      */
     public void setProgress(int progress) {
@@ -145,7 +154,21 @@ public class SpiralProgressView extends View {
         }
         mAttrs.mProgress = progress > mAttrs.mMax ? mAttrs.mMax : progress;
         mSection = mAttrs.mProgress * 1.0f / mAttrs.mMax;
-        invalidate();
+        postInvalidate();
+    }
+
+    /**
+     * 设置第二进度值
+     * @param secondProgress
+     */
+    public void setSecondProgress(int secondProgress) {
+        if(secondProgress == mAttrs.mSecondPressColor) {
+            return;
+        }
+
+        mAttrs.mSecondPress = secondProgress > mAttrs.mMax ? mAttrs.mMax : secondProgress;
+        mSecondSection = mAttrs.mSecondPress * 1.0f / mAttrs.mMax;
+        postInvalidate();
     }
 
     /**
@@ -161,12 +184,14 @@ public class SpiralProgressView extends View {
     public static class ProgressAttrs {
         public int mMax;       // 最大值
         public int mProgress;  // 进度
+        public int mSecondPress;  // 第二进度
         public float mDisLine; // 斜线的距离
         public float mWLine;   // 斜线的宽度
         public int mDegrees;   // 斜线的角度
         public float mRound;   // 圆角
         public int mBackgroudColor; // 背景颜色
         public int mLineColor; // 斜线的颜色
+        public int mSecondPressColor; // 第二进度条背景的颜色
         public boolean haveAnimation;  // 是否有动画
         public int animationTime;   // 动画的时间(前提haveAnimation=true)
         public float animationSpeed; // 动画的速率(前提haveAnimation=true)
@@ -180,6 +205,7 @@ public class SpiralProgressView extends View {
             mRound = dp2px(context, 5);
             mBackgroudColor = Color.parseColor("#F86442");
             mLineColor = Color.parseColor("#D54A2A");
+            mSecondPressColor = Color.parseColor("#FF7154");
 
             haveAnimation = false;
             animationTime = 100;
