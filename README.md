@@ -3,11 +3,11 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Download](https://api.bintray.com/packages/xinle/maven/SpiralProgressView/images/download.svg) ](https://bintray.com/xinle/maven/SpiralProgressView/_latestVersion)
 
-Android 仿IOS ActionSheet UI样式 ,通过纯代码实现 ,不用导入额外的图片 ,可定制化能力强
+实现了进度条控件,用户可以自定义斜线的倾斜度,宽带,斜线之间的宽带等.可以设置斜线是否有动画,功能强大
 
-## Screenshot
+## Screenshot  (实际效果没有这么差,因为图片压缩过的原因有锯齿毛边)
 
-![](https://github.com/xinle/SpiralProgressView/blob/master/screenshot/screenshot.gif)
+![](https://github.com/xinle/SpiralProgressView/blob/master/Screenshot/screenshot.gif)
 
 ## 使用
 
